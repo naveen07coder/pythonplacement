@@ -1,8 +1,9 @@
 words = ["pay","attention","practice","attend"]
 pref = "at"
 
-k = []
+c = 0
 for i in range(len(words)):
-    if pref in words[i]:
-        k.append(words[i])
-print(len(k))
+    st=words[i]
+    if(pref==st[0:len(pref)]):
+        c+=1
+print(c)
