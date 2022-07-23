@@ -1,3 +1,3 @@
-# pythonplacement
+# python_practice
 python
 
