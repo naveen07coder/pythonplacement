@@ -32,7 +32,6 @@ class SinglyLinkedList:
 
         while True:
             if currentpos == pos:
-                pass
                 prevNode.next = currentNode.next
                 currentNode.next = None
                 break
