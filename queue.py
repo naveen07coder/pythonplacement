@@ -10,7 +10,7 @@ def dequeue():
     if not queues:
         print("Nothing to dequeue")
     else:
-        e = queues.pop()
+        e = queues.pop(0)
         print("Value Dequeued : ", e)
         print(queues)
 
