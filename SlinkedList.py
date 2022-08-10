@@ -1,82 +1,101 @@
-# class Node:
-#     def __init__(self, data):
-#         #Created Node
-#         self.data = data
-#         self.next = None
-# class SingleLinkedList:
-#
-#     def __init__(self):
-#         self.head  = None
-#
-#     def insert(self, newNode):
-#
-#         if self.head is None:
-#             self.head = newNode
-#
-#         else:
-#
-#             lastNode = self.head
-#
-#             while True:
-#                 if lastNode.next is None:
-#                     break
-#                 lastNode = lastNode.next
-#             lastNode.next = newNode
-#
-#     def prints(self):
-#         currnode = self.head
-#         if currnode is None:
-#             print("List is Empty")
-#         else:
-#             while True:
-#                 if currnode is None:
-#                     break
-#                 print(currnode.data)
-#                 currnode = currnode.next
-#
-#
-#
-
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
-class SingleLinkedList:
+class SinglyLinkedList:
     def __init__(self):
         self.head = None
 
-    def insert(self, newNode):
+    def inserthead(self, newNode):
+        temp = self.head
+        self.head = newNode
+        newNode.next = temp
+        del temp
 
+    def delend(self):
+        lastNode = self.head
+        while lastNode.next is not None:
+            prevNode = lastNode
+            lastNode = lastNode.next
+        prevNode.next = None
+
+    def delmid(self, pos):
+
+        currentNode = self.head
+        currentpos = 0
+        while True:
+            if currentpos == pos:
+                prevNode.next = currentNode.next
+                # currentNode.next = None
+                break
+            prevNode = currentNode
+            currentNode = currentNode.next
+            currentpos = currentpos+1
+
+
+
+    def insertend(self, newNode):
         if self.head is None:
-            self.head = newNode
+            self.head =newNode
 
         else:
-#
-            lastNode = self.head
+            nextNode = self.head
             while True:
-                if lastNode.next is None:
+                if nextNode.next is None:
                     break
-                lastNode = lastNode.next
-            lastNode.next = newNode
+                nextNode = nextNode.next
+            nextNode.next = newNode
+
+    def midinsert(self, newNode, pos):
+        currentNode = self.head
+        currentpos = 0
+
+        while True:
+            if currentpos == pos:
+                prevNode.next = newNode
+                newNode.next =currentNode
+                break
+
+            prevNode = currentNode
+            currentNode = currentNode.next
+            currentpos = currentpos+1
 
     def prints(self):
-        currNode = self.head
-        if currNode is None:
-            print("List is Empty")
+        currentNode = self.head
+        if currentNode is None:
+            print("List is empty")
         else:
             while True:
-                if currNode is None:
+                if currentNode is None:
                     break
-                print(currNode.data)
-                currNode = currNode.next
+                print(currentNode.data)
+                currentNode = currentNode.next
 
-fn = Node("Naveen")
-sl = SingleLinkedList()
-sl.insert(fn)
-sn = Node("Jagan")
-sl.insert(sn)
-tn = Node("Harsha")
-sl.insert(tn)
+    def rever(self):
+        prev = None
+        current = self.head
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
 
+fn = Node(10)
+sl = SinglyLinkedList()
+sl.insertend(fn)
+sn = Node(20)
+sl.insertend(sn)
+tn = Node(30)  
+sl.insertend(tn)
+ttn = Node(5)
+sl.inserthead(ttn)
+mid = Node(25)
+sl.midinsert(mid, 3)
+sl.delmid(3)
+# sl.delend()
+sl.prints()
+
+sl.rever()
 sl.prints()
