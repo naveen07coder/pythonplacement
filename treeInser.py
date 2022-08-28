@@ -33,16 +33,48 @@ class BST:
                 self.lchild.search(data)
             else:
                 print("Node not present in tree")
-        if data > self.key:
-            if self.key:
-                self.rchild.search(data)
-            else:
-                print("Node not present in tree")
+        else:
+            if data > self.key:
+                if self.key:
+                    self.rchild.search(data)
+                else:
+                    print("Node not present in tree")
+
+    def preorder(self) :
+        print(self.key, end=" ")
+        if self.lchild:
+            self.lchild.preorder()
+        if self.rchild:
+            self.rchild.preorder()
+
+    def inorder(self) :
+        if self.lchild:
+            self.lchild.inorder()
+        print(self.key, end=" ")
+        if self.rchild:
+            self.rchild.inorder()
+
+    def postorder(self) :
+        if self.lchild:
+            self.lchild.inorder()
+        if self.rchild:
+            self.rchild.inorder()
+        print(self.key, end=" ")
 
 
-root = BST(2)
-root.insert(10)
-root.insert(20)
-root.insert(30)
-root.insert(5)
-root.search(10)
+    def delete(self):
+
+
+root= BST(10)
+list = [6,3,1,6,98,3,7 ]
+for i in range(len(list)):
+    root.insert(list[i])
+
+# # root.search(10)
+root.preorder()
+print("preorder")
+root.inorder()
+print("inorder")
+root.postorder()
+print("postorder")
+
