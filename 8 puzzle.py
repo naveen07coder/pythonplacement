@@ -33,7 +33,7 @@ def depth_limited_search(arr, target, limit, i, j):
 
 arr = [[2, 8, 3], [1, 6, 4], [7, None, 5]]
 target = [[2, 8, 3], [6, 7, 4], [1, None, 5]]
-limit = 43
+limit = 46
 if depth_limited_search(arr, target, limit, 2, 1):
     print("possible")
 else:
