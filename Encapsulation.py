@@ -20,4 +20,5 @@ class Rectangle:
 
 
 r1 = Rectangle(10, 22)
+print(r1.get_breath())
 print(r1.area())
